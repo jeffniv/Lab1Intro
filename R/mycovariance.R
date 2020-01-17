@@ -15,7 +15,7 @@
 mycovariance = function(X){
     X_centered = mycenter(X)
     covariance = matrix(NaN, dim(X)[2], dim(X)[2])
-    for(j in 1:dim(X)[1]){
+    for(j in 1:dim(X)[2]){
         for(k in j:dim(X)[2]){
             covariance[j,k] = X_centered[,j]%*%X_centered[,k]
             if(j!=k){
