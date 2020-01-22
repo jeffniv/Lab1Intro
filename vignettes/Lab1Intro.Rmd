@@ -1,0 +1,94 @@
+---
+title: "Lab1Intro"
+output: 
+    rmarkdown::html_vignette:
+        toc: true
+vignette: >
+  %\VignetteIndexEntry{Lab1Intro}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Lab1Intro)
+```
+
+# Links
+
+The github repo can be found [here](https://github.com/jeffniv/Lab1Intro). The documentation for making a packing can be found [here](http://r-pkgs.had.co.nz/). 
+
+# Definitions
+
+The *sample mean* can be computed from the $n$ measurements on each of the $p$ variables, so that, in general, there will be $p$ sample means:
+$$\bar{x}_k = \frac{1}{n} \sum^n_{j=1} x_{jk}, \ \ k=1,2,\ldots,p.$$
+
+The *sample covariance* measures the association between the ith and kth variables:
+$$s_{ik} = \frac{1}{n} \sum^n_{j=1} (x_{ji} - \bar{x}_i)(x_{jk} - \bar{x}_k), \ \ i=1,2,\ldots,p, \ k=1,2,\ldots,p.$$ 
+
+The *sample correlation* coefficient for the ith and kth variables is defined as:
+$$r_{ik} = \frac{s_{ik}}{\sqrt{s_{ii}}\sqrt{s_{kk}}} = \frac{\sum^n_{j=1} (x_{ji} - \bar{x}_i)(x_{jk} - \bar{x}_k)}{\sqrt{\sum^n_{j=1} (x_{ji} - \bar{x}_i)^2} \sqrt{\sum^n_{j=1} (x_{jk} - \bar{x}_k)^2}}$$.
+
+Let bolded items represent vectors and matrices. $\mathbf{1}$ represent an $n\times 1$ vector with entries $1$. The *sample mean vector* is defined as:
+$$\bar{\mathbf{x}} = \frac{1}{n}\mathbf{X}'\mathbf{1}$$
+
+The *sample covariance matrix* is:
+$$\mathbf{S} = \frac{1}{n-1} \mathbf{X}' \left(\mathbf{I} - \frac{1}{n}\mathbf{1}\mathbf{1}'\right)\mathbf{X} $$.
+
+Once $\mathbf{S}$ is computed then the *sample standard deviation matrix* is defined as
+$$\mathbf{D}^{1/2}_{(p \times p)} = \left[ \begin{array}{cccc} \sqrt{s_{11}} & 0 & \cdots & 0 \\
+0 & \sqrt{s_{22}} & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \sqrt{s_{pp}} \end{array} \right]$$
+
+Then
+$$\mathbf{D}^{-1/2}_{(p \times p)} = \left[ \begin{array}{cccc} \frac{1}{\sqrt{s_{11}}} & 0 & \cdots & 0 \\
+0 & \frac{1}{\sqrt{s_{22}}} & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \frac{1}{\sqrt{s_{pp}}} \end{array} \right]$$
+
+Since
+$$\mathbf{S} = \left[ \begin{array}{cccc} s_{11} & s_{12} & \cdots & s_{1p} \\
+\vdots & \vdots & \ddots & \vdots \\
+s_{1p} & s_{2p} & \cdots & s_{pp} \end{array} \right]$$
+
+and
+$$\mathbf{R} = \left[ \begin{array}{cccc} \frac{s_{11}}{\sqrt{s_{11}}\sqrt{s_{11}}} & \frac{s_{12}}{\sqrt{s_{11}}\sqrt{s_{22}}} & \cdots & \frac{s_{1p}}{\sqrt{s_{11}}\sqrt{s_{pp}}} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{s_{1p}}{\sqrt{s_{11}}\sqrt{s_{pp}}} & \frac{s_{2p}}{\sqrt{s_{22}}\sqrt{s_{pp}}} & \cdots & \frac{s_{pp}}{\sqrt{s_{pp}}\sqrt{s_{pp}}} \end{array} \right] = \left[ \begin{array}{cccc} 1 & r_{12} & \cdots & r_{1p} \\
+\vdots & \vdots & \ddots & \vdots \\
+r_{1p} & r_{2p} & \cdots & 1 \end{array} \right]$$
+
+We have
+$$\mathbf{R} = \mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2}$$.
+
+# Examples
+
+The package comes with paper quality data called `paper`.
+
+```{r paper}
+data(paper)
+head(paper)
+```
+
+The function `mymeanvector()` calculates the mean vector of a data matrix.
+```{r mean}
+mymeanvector(paper)
+```
+
+The function `mycovariance()` calculates the biased covariance matrix of a data matrix.
+```{r cov}
+mycovariance(paper)
+```
+
+The function `mycorrelation()` calculates the correlation matrix of a data matrix.
+```{r cor}
+mycorrelation(paper)
+```
+
