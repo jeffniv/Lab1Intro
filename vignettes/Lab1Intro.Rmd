@@ -92,3 +92,11 @@ The function `mycorrelation()` calculates the correlation matrix of a data matri
 mycorrelation(paper)
 ```
 
+# Assessment for this course
+
+1. Clicker quizzes (10%)
+2. 4 assignments (20%)
+3. Laboratories (10%)
+4. 2 mid-term exams (20%)
+5. 3 projects (10%)
+6. 1 final exam (30%)
