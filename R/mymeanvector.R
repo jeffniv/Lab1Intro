@@ -1,5 +1,5 @@
 
-#' mymeanvector
+#' Calculate column means of a matrix
 #'
 #' Calculate a mean vector.
 #'

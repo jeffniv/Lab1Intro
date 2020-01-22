@@ -1,6 +1,6 @@
 
 
-#' mymean(x)
+#' Calculate vector mean
 #'
 #' Calculate the mean of a vector.
 #'

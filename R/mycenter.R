@@ -1,5 +1,5 @@
 
-#' mycenter(x)
+#' Subtract column means from columns of a matrix
 #'
 #'  Subtract the mean from the columns.
 #'

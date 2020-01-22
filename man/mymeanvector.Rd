@@ -2,7 +2,7 @@
 % Please edit documentation in R/mymeanvector.R
 \name{mymeanvector}
 \alias{mymeanvector}
-\title{mymeanvector}
+\title{Calculate column means of a matrix}
 \usage{
 mymeanvector(X)
 }

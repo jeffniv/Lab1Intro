@@ -2,7 +2,7 @@
 % Please edit documentation in R/mymean.R
 \name{mymean}
 \alias{mymean}
-\title{mymean(x)}
+\title{Calculate vector mean}
 \usage{
 mymean(x)
 }

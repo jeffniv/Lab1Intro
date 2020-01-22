@@ -2,7 +2,7 @@
 % Please edit documentation in R/mycenter.R
 \name{mycenter}
 \alias{mycenter}
-\title{mycenter(x)}
+\title{Subtract column means from columns of a matrix}
 \usage{
 mycenter(X)
 }
