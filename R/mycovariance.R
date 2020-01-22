@@ -24,5 +24,9 @@ mycovariance = function(X){
         }
     }
     covariance = (1/dim(X)[1])*covariance
+    if(!is.null(colnames(X))){
+        colnames(covariance) = colnames(X)
+        rownames(covariance) = colnames(X)
+    }
     return(covariance)
 }

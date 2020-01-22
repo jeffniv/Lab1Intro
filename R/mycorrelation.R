@@ -15,7 +15,7 @@
 #'
 mycorrelation = function(X){
     biascov = mycovariance(X)
-    correlation = matrix(NaN, dim(X)[2], dim(X)[2])
+    correlation = biascov
     for(j in 1:dim(X)[2]){
         for(k in j:dim(X)[2]){
             correlation[j,k] = biascov[j,k]/sqrt(biascov[j,j]*biascov[k,k])
